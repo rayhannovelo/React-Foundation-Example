@@ -19,10 +19,6 @@
         
         // states
         const [likes, setLikes] = React.useState(0)
-        
-        function handleClick() {
-          setLikes(likes + 1)
-        }
  
         return (
           <div>
@@ -32,7 +28,9 @@
                 return <li key={index}>{name}</li>
               })}
             </ul>
-            <button onClick={handleClick}>Like ({likes})</button>
+            <button onClick={() => setLikes(likes - 1)}>Remove Like</button>
+            <button style={{margin: '10px'}}>Like ({likes})</button>
+            <button onClick={() => setLikes(likes + 1)}>Add Like</button>
           </div>
         );
       }
